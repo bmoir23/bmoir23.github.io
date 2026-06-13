@@ -16,15 +16,6 @@ html.dark {
 	color-scheme: dark;
 }
 
-/* i18n Visibility Utilities */
-html[data-lang="es"] .locale-en {
-	display: none !important;
-}
-
-html[data-lang="en"] .locale-es {
-	display: none !important;
-}
-
 .parallax-section {
 	transition: transform 0.3s ease-out;
 }
@@ -116,51 +107,6 @@ html[data-lang="en"] .locale-es {
 
 .tech-ticker-content:hover {
 	animation-play-state: paused;
-}
-
-@keyframes fadeInOverlay {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes fadeOutOverlay {
-	0% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
-}
-
-.lang-change-overlay {
-	position: fixed;
-	inset: 0;
-	background: rgba(0, 0, 0, 0.6);
-	backdrop-filter: blur(8px);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 999;
-	animation: fadeInOverlay 0.3s ease;
-}
-
-.lang-change-overlay.hidden {
-	animation: fadeOutOverlay 0.3s ease forwards;
-}
-
-.lang-change-modal {
-	text-align: center;
-	animation: fadeInOverlay 0.3s ease;
-}
-
-.lang-change-modal h2 {
-	font-size: 2rem;
-	font-weight: bold;
-	color: white;
 }
 
 .cv-download-card {

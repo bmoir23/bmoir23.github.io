@@ -1,33 +1,35 @@
 ---
+import brandLogo from '../assets/brand-logo.png';
+
 const currentPage = Astro.url.pathname;
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-3 sm:pt-6 px-4">
 	<div class="backdrop-blur-md bg-white/80 dark:bg-gray-950/80 border border-gray-200 dark:border-gray-700 rounded-full px-4 sm:px-6 py-2 sm:py-3 flex items-center justify-between sm:justify-center gap-2 sm:gap-6 shadow-sm w-full sm:w-auto">
+		<a href="/" class="flex-shrink-0" aria-label="Brian Moir home">
+			<img src={brandLogo.src} alt="Brian Moir" class="h-8 w-8 sm:h-9 sm:w-9 rounded-lg" />
+		</a>
+
 		<!-- Desktop Links -->
 		<div class="hidden sm:flex items-center gap-6">
-			<a href="/" class={`text-sm font-medium transition-colors whitespace-nowrap ${currentPage === '/' ? 'text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'}`} data-en="Home" data-es="Inicio">
+			<a href="/" class={`text-sm font-medium transition-colors whitespace-nowrap ${currentPage === '/' ? 'text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'}`}>
 				Home
 			</a>
-			<a href="/projects" class={`text-sm font-medium transition-colors whitespace-nowrap ${currentPage === '/projects' ? 'text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'}`} data-en="Projects" data-es="Proyectos">
+			<a href="/projects" class={`text-sm font-medium transition-colors whitespace-nowrap ${currentPage === '/projects' ? 'text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'}`}>
 				Projects
 			</a>
-			<a href="/work" class={`text-sm font-medium transition-colors whitespace-nowrap ${currentPage === '/work' ? 'text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'}`} data-en="Work" data-es="Trabajo">
+			<a href="/work" class={`text-sm font-medium transition-colors whitespace-nowrap ${currentPage === '/work' ? 'text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'}`}>
 				Work
 			</a>
-			<a href="/contact" class={`text-sm font-medium transition-colors whitespace-nowrap ${currentPage === '/contact' ? 'text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'}`} data-en="Contact" data-es="Contacto">
+			<a href="/contact" class={`text-sm font-medium transition-colors whitespace-nowrap ${currentPage === '/contact' ? 'text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'}`}>
 				Contact
 			</a>
 
 			<div class="w-px h-6 bg-gray-300 dark:bg-gray-600"></div>
 		</div>
 
-		<!-- Language and Theme Toggles -->
+		<!-- Theme Toggle -->
 		<div class="flex items-center gap-2">
-			<button id="lang-btn" onclick="window.toggleLang()" class="px-2 py-1 text-xs font-bold rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors cursor-pointer whitespace-nowrap">
-				EN
-			</button>
-
 			<button onclick="window.toggleTheme()" class="p-1 sm:p-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors cursor-pointer flex-shrink-0" aria-label="Toggle theme">
 				<svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
@@ -51,16 +53,16 @@ const currentPage = Astro.url.pathname;
 
 	<!-- Mobile Menu Dropdown -->
 	<div id="mobile-menu" class="hidden absolute top-14 left-4 right-4 backdrop-blur-md bg-white/80 dark:bg-gray-950/80 border border-gray-200 dark:border-gray-700 rounded-2xl px-4 py-3 space-y-2 shadow-lg sm:hidden">
-		<a href="/" onclick="window.closeMobileMenu()" class={`block px-3 py-2 rounded-lg transition-colors font-medium text-sm ${currentPage === '/' ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'}`} data-en="Home" data-es="Inicio">
+		<a href="/" onclick="window.closeMobileMenu()" class={`block px-3 py-2 rounded-lg transition-colors font-medium text-sm ${currentPage === '/' ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'}`}>
 			Home
 		</a>
-		<a href="/projects" onclick="window.closeMobileMenu()" class={`block px-3 py-2 rounded-lg transition-colors font-medium text-sm ${currentPage === '/projects' ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'}`} data-en="Projects" data-es="Proyectos">
+		<a href="/projects" onclick="window.closeMobileMenu()" class={`block px-3 py-2 rounded-lg transition-colors font-medium text-sm ${currentPage === '/projects' ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'}`}>
 			Projects
 		</a>
-		<a href="/work" onclick="window.closeMobileMenu()" class={`block px-3 py-2 rounded-lg transition-colors font-medium text-sm ${currentPage === '/work' ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'}`} data-en="Work" data-es="Trabajo">
+		<a href="/work" onclick="window.closeMobileMenu()" class={`block px-3 py-2 rounded-lg transition-colors font-medium text-sm ${currentPage === '/work' ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'}`}>
 			Work
 		</a>
-		<a href="/contact" onclick="window.closeMobileMenu()" class={`block px-3 py-2 rounded-lg transition-colors font-medium text-sm ${currentPage === '/contact' ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'}`} data-en="Contact" data-es="Contacto">
+		<a href="/contact" onclick="window.closeMobileMenu()" class={`block px-3 py-2 rounded-lg transition-colors font-medium text-sm ${currentPage === '/contact' ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'}`}>
 			Contact
 		</a>
 	</div>
@@ -98,11 +100,9 @@ const currentPage = Astro.url.pathname;
 		}
 	}
 
-	// Expose functions to window
 	window.toggleMobileMenu = toggleMobileMenu;
 	window.closeMobileMenu = closeMobileMenu;
 
-	// Add click handler to hamburger button
 	const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 	if (mobileMenuBtn) {
 		mobileMenuBtn.addEventListener('click', (e) => {
@@ -111,7 +111,6 @@ const currentPage = Astro.url.pathname;
 		});
 	}
 
-	// Close menu when clicking outside
 	document.addEventListener('click', (e) => {
 		const menu = document.getElementById('mobile-menu');
 		const btn = document.getElementById('mobile-menu-btn');

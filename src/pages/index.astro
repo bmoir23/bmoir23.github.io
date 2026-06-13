@@ -3,53 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import cvFile from '../assets/CV/CV_Brian_Moir.pdf';
-
-const translations = {
-  greeting: { 
-    en: "Hello, I'm", 
-    es: "Hola, soy" 
-  },
-  name: { 
-    en: "Brian Moir", 
-    es: "Brian Moir" 
-  },
-  description: { 
-    en: "AI & ML Engineer and DevOps & Solutions Engineer specialized in scalable multi-tenant platforms, autonomous agent systems, and developer tooling.", 
-    es: "Ingeniero de IA y ML e Ingeniero de DevOps y Soluciones, especializado en plataformas multiinquilino escalables, sistemas de agentes autónomos y herramientas para desarrolladores." 
-  },
-  availability: {
-    en: "Open to work",
-    es: "Disponible para trabajar"
-  },
-  viewProjects: { 
-    en: "View Projects", 
-    es: "Ver Proyectos" 
-  },
-  getInTouch: { 
-    en: "Get in Touch", 
-    es: "Contactar" 
-  },
-	roleTitle: {
-		en: "AI & ML Engineer",
-		es: "Ingeniero de IA y ML"
-	},
-	downloadCv: {
-		en: "Download CV",
-		es: "Descargar CV"
-	},
-  about: { 
-    en: "About Me", 
-    es: "Sobre mí" 
-  },
-  aboutDesc: {
-    es: "Soy un Ingeniero de Infraestructura de IA y Arquitecto especializado en plataformas escalables multiinquilino, sistemas de agentes autónomos y herramientas para desarrolladores. Cuento con una sólida capacidad para desarrollar y lanzar rápidamente herramientas de IA listas para producción, pipelines de automatización y aplicaciones impulsadas por datos utilizando arquitecturas serverless, Next.js y Cloudflare Workers. Me apasiona diseñar APIs intuitivas para desarrolladores, optimizar despliegues orientados al borde (edge-first) y hacer que la infraestructura de IA de código abierto sea altamente accesible y escalable.",
-    en: "I am an AI Infrastructure Engineer and Architect specializing in scalable multi-tenant platforms, autonomous agent systems, and developer tooling. I have a proven ability to rapidly ship production-ready AI tools, automation pipelines, and data-driven applications using serverless architectures, Next.js, and Cloudflare Workers. I am passionate about designing developer-friendly APIs, optimizing edge-first deployments, and making open-source AI infrastructure highly accessible and scalable."
-  },
-  tech: { 
-    en: "Featured Technical Skills", 
-    es: "Habilidades Técnicas Destacadas" 
-  }
-};
+import profilePhoto from '../assets/photo.jpeg';
 
 const technicalSkills = [
   { name: "LLMs & RAG", type: "AI & Data Systems" },
@@ -87,26 +41,26 @@ const technicalSkills = [
 			<div class="flex flex-col items-center gap-6 sm:gap-8 text-center">
 				<div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
 					<div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full bg-gray-100 dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center overflow-hidden animated-border always-visible flex-shrink-0 shadow-lg dark:shadow-white/20">
-						<span class="text-3xl sm:text-4xl md:text-5xl text-gray-700 dark:text-gray-300">🤖</span>
+						<img src={profilePhoto.src} alt="Brian Moir" class="w-full h-full object-cover" />
 					</div>
 					<div class="animated-border always-visible px-3 sm:px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 h-fit">
-						<p class="text-xs sm:text-sm font-medium text-gray-900 dark:text-white whitespace-nowrap" data-en={translations.availability.en} data-es={translations.availability.es}>{translations.availability.en}</p>
+						<p class="text-xs sm:text-sm font-medium text-gray-900 dark:text-white whitespace-nowrap">Open to work</p>
 					</div>
 				</div>
 				<div>
-					<p class="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 mb-2" data-en={translations.greeting.en} data-es={translations.greeting.es}>{translations.greeting.en}</p>
-					<h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 px-2 sm:px-0" data-en={translations.name.en} data-es={translations.name.es}>
-						{translations.name.en}
+					<p class="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Hello, I'm</p>
+					<h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 px-2 sm:px-0">
+						Brian Moir
 					</h1>
-					<p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-4 sm:mb-6 px-2 sm:px-0" data-en="AI & ML Engineer and DevOps & Solutions Engineer specialized in scalable multi-tenant platforms, autonomous agent systems, and developer tooling." data-es="Ingeniero de IA y ML e Ingeniero de DevOps y Soluciones, especializado en plataformas multiinquilino escalables, sistemas de agentes autónomos y herramientas para desarrolladores.">
+					<p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-4 sm:mb-6 px-2 sm:px-0">
 						<span class="font-semibold text-gray-900 dark:text-white">AI & ML Engineer</span> and <span class="font-semibold text-gray-900 dark:text-white">DevOps & Solutions Engineer</span> specialized in scalable multi-tenant platforms, autonomous agent systems, and developer tooling.
 					</p>
 					<div class="flex flex-wrap gap-2 sm:gap-3 justify-center px-2 sm:px-0">
-						<a href="/projects" class="cursor-pointer px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium rounded-full hover:animated-bg transition-all" data-en={translations.viewProjects.en} data-es={translations.viewProjects.es}>
-							{translations.viewProjects.en}
+						<a href="/projects" class="cursor-pointer px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium rounded-full hover:animated-bg transition-all">
+							View Projects
 						</a>
-						<a href="/contact" class="animated-border cursor-pointer px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white font-medium rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" data-en={translations.getInTouch.en} data-es={translations.getInTouch.es}>
-							{translations.getInTouch.en}
+						<a href="/contact" class="animated-border cursor-pointer px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white font-medium rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+							Get in Touch
 						</a>
 					</div>
 					<div class="mt-8 sm:mt-10 flex justify-center px-2 sm:px-0">
@@ -114,10 +68,10 @@ const technicalSkills = [
 							<div class="cv-download-card-inner">
 								<div class="text-gray-50 text-left">
 									<span class="cv-initials">BM</span>
-									<p class="cv-role" data-en={translations.roleTitle.en} data-es={translations.roleTitle.es}>{translations.roleTitle.en}</p>
+									<p class="cv-role">AI & ML Engineer</p>
 								</div>
-								<a href={cvFile} download="CV_Brian_Moir.pdf" class="cv-download-button" data-en={translations.downloadCv.en} data-es={translations.downloadCv.es}>
-									<span>{translations.downloadCv.en}</span>
+								<a href={cvFile} download="CV_Brian_Moir.pdf" class="cv-download-button">
+									<span>Download CV</span>
 									<svg class="w-5 h-5 fill-current" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 										<path d="M22.1,77.9a4,4,0,0,1,4-4H73.9a4,4,0,0,1,0,8H26.1A4,4,0,0,1,22.1,77.9ZM35.2,47.2a4,4,0,0,1,5.7,0L46,52.3V22.1a4,4,0,1,1,8,0V52.3l5.1-5.1a4,4,0,0,1,5.7,0,4,4,0,0,1,0,5.6l-12,12a3.9,3.9,0,0,1-5.6,0l-12-12A4,4,0,0,1,35.2,47.2Z" fill-rule="evenodd"></path>
 									</svg>
@@ -133,25 +87,22 @@ const technicalSkills = [
 		</section>
 
 		<section class="max-w-3xl mx-auto py-12 sm:py-16 border-t border-gray-200 dark:border-gray-700 parallax-section fade-in px-2 sm:px-0">
-			<h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8" data-en={translations.about.en} data-es={translations.about.es}>{translations.about.en}</h2>
-			<div class="space-y-3 sm:space-y-4 text-base sm:text-lg leading-relaxed text-gray-600 dark:text-gray-400" data-en={translations.aboutDesc.en} data-es={translations.aboutDesc.es}>
-				{translations.aboutDesc.en}
+			<h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">About Me</h2>
+			<div class="space-y-3 sm:space-y-4 text-base sm:text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+				I am an AI Infrastructure Engineer and Architect specializing in scalable multi-tenant platforms, autonomous agent systems, and developer tooling. I have a proven ability to rapidly ship production-ready AI tools, automation pipelines, and data-driven applications using serverless architectures, Next.js, and Cloudflare Workers. I am passionate about designing developer-friendly APIs, optimizing edge-first deployments, and making open-source AI infrastructure highly accessible and scalable.
 			</div>
 		</section>
 
 		<section class="max-w-3xl mx-auto py-12 sm:py-16 border-t border-gray-200 dark:border-gray-700 parallax-section fade-in px-2 sm:px-0">
-			<h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8" data-en={translations.tech.en} data-es={translations.tech.es}>{translations.tech.en}</h2>
+			<h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">Featured Technical Skills</h2>
 			
 			<div class="tech-ticker-container">
 				<div class="tech-ticker-content">
-					{/* First set */}
 					{technicalSkills.map((skill) => (
 						<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
 							<p class="text-sm font-medium text-gray-900 dark:text-white">{skill.name}</p>
 						</div>
 					))}
-					
-					{/* Second set for seamless looping */}
 					{technicalSkills.map((skill) => (
 						<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
 							<p class="text-sm font-medium text-gray-900 dark:text-white">{skill.name}</p>

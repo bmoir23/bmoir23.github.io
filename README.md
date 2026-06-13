@@ -2,14 +2,14 @@
 
 Personal portfolio of **Brian Moir** — AI & ML Engineer | DevOps & Solutions Engineer based in Knoxville, TN.
 
-Built with Astro and Tailwind CSS. Bilingual (English/Spanish) with dark mode support.
+Built with Astro and Tailwind CSS with dark mode support.
 
 ## 🚀 Tech Stack
 
 - **[Astro](https://astro.build)** — Static site generator
 - **[Tailwind CSS](https://tailwindcss.com)** — Utility-first styling
 - **TypeScript** — Type-safe scripting
-- Responsive design, dark mode, and EN/ES language toggle
+- Responsive design and dark mode
 
 ## 📂 Structure
 
@@ -18,14 +18,14 @@ src/
 ├── assets/                  # Images, icons, CV
 │   └── CV/CV_Brian_Moir.pdf
 ├── components/              # Header, Footer
-├── layouts/                 # Base Layout (theme + language scripts)
+├── layouts/                 # Base Layout (theme scripts)
 ├── pages/
 │   ├── index.astro          # Home — summary, skills, CV download
 │   ├── projects.astro       # Projects grid
 │   ├── projects/[project].astro  # Dynamic project pages
 │   ├── work.astro           # Work experience timeline
 │   └── contact.astro        # Contact info and social links
-├── project-descriptions/    # Markdown project content (EN + ES)
+├── project-descriptions/    # Markdown project content (English)
 │   ├── Syncc-Agent-OS/
 │   ├── Micro-Service-Builder/
 │   ├── Content-Generation-Engine/
@@ -51,9 +51,8 @@ npm run preview
 
 ## ✍️ Adding a Project
 
-Create a new folder in `src/project-descriptions/` with two files:
+Create a new folder in `src/project-descriptions/` with:
 
-- `descripcion.md` (Spanish)
 - `descripcion.en.md` (English)
 
 Format:
