@@ -15,8 +15,11 @@
     "@neondatabase/serverless": "^1.1.0",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.10",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.40.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
+    "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
