@@ -47,7 +47,21 @@ npm run build
 
 # Preview production build
 npm run preview
+
+# Contact form API (Cloudflare Pages + Neon) — build first, then local API
+cp .dev.vars.example .dev.vars   # add your Neon DATABASE_URL
+npm run pages:dev
 ```
+
+## 📬 Contact form
+
+Submissions are stored in **Neon Postgres** via a **Cloudflare Pages Function** at `POST /api/contact`.
+
+1. Create a Neon database and run `db/migrations/001_contact_submissions.sql`.
+2. Copy `.dev.vars.example` to `.dev.vars` and set `DATABASE_URL`.
+3. Deploy with Cloudflare Pages (`npm run pages:deploy`) and add `DATABASE_URL` as a project secret.
+
+The form appears on the home and contact pages. On GitHub Pages alone the UI renders, but submissions require Cloudflare Pages (or another host for `functions/`).
 
 ## ✍️ Adding a Project
 

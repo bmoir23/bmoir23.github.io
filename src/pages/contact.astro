@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ContactForm from '../components/ContactForm.astro';
 
 const socialLinks = [
 	{ name: 'GitHub', url: 'https://github.com', value: 'github.com/bmoir23' },
@@ -73,6 +74,14 @@ const directContact = [
 						}
 					</ul>
 				</div>
+			</div>
+
+			<div class="mt-12 sm:mt-16 border-t border-gray-200 dark:border-gray-700 pt-12 sm:pt-16">
+				<ContactForm
+					source="contact"
+					heading="Send a message"
+					description="Prefer a form over email? Drop your details below and I'll get back to you."
+				/>
 			</div>
 		</section>
 	</main>

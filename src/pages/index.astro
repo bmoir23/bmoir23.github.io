@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ShinyButton from '../components/ui/shiny-button';
+import ContactForm from '../components/ContactForm.astro';
 import cvFile from '../assets/CV/CV_Brian_Moir.pdf';
 import profilePhoto from '../assets/photo.jpeg';
 
@@ -94,6 +95,16 @@ const technicalSkills = [
 			<div class="space-y-3 sm:space-y-4 text-base sm:text-lg leading-relaxed text-gray-600 dark:text-gray-400">
 				I am an AI Infrastructure Engineer and Architect specializing in scalable multi-tenant platforms, autonomous agent systems, and developer tooling. I have a proven ability to rapidly ship production-ready AI tools, automation pipelines, and data-driven applications using serverless architectures, Next.js, and Cloudflare Workers. I am passionate about designing developer-friendly APIs, optimizing edge-first deployments, and making open-source AI infrastructure highly accessible and scalable.
 			</div>
+		</section>
+
+		<section class="max-w-3xl mx-auto py-12 sm:py-16 border-t border-gray-200 dark:border-gray-700 parallax-section fade-in px-2 sm:px-0">
+			<ContactForm
+				variant="compact"
+				source="home"
+				heading="Quick message"
+				description="Have a project or role in mind? Send a note and I'll reply by email."
+				showSubject={false}
+			/>
 		</section>
 
 		<section class="max-w-3xl mx-auto py-12 sm:py-16 border-t border-gray-200 dark:border-gray-700 parallax-section fade-in px-2 sm:px-0">
