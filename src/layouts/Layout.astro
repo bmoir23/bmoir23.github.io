@@ -6,6 +6,7 @@ interface Props {
 const { title } = Astro.props;
 
 import '../styles/global.css';
+import InfiniteGridBackground from '../components/ui/infinite-grid-background';
 ---
 
 <!doctype html>
@@ -18,8 +19,11 @@ import '../styles/global.css';
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-white dark:bg-gray-950 transition-colors duration-300">
-		<slot />
+	<body class="min-h-screen transition-colors duration-300">
+		<InfiniteGridBackground client:load />
+		<div class="relative z-10">
+			<slot />
+		</div>
 		<script>
 			declare global {
 				interface Window {

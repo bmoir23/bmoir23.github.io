@@ -1,0 +1,163 @@
+---
+interface Props {
+	variant?: 'default' | 'compact';
+	source?: 'home' | 'contact';
+	heading?: string;
+	description?: string;
+	showSubject?: boolean;
+}
+
+const {
+	variant = 'default',
+	source = 'contact',
+	heading = 'Send a message',
+	description = "Share a bit about what you're working on and I'll get back to you.",
+	showSubject = variant === 'default',
+} = Astro.props;
+
+const formId = `contact-form-${source}`;
+const textareaRows = variant === 'compact' ? 4 : 6;
+---
+
+<section
+	class:list={[
+		'contact-form-section fade-in',
+		variant === 'compact' && 'contact-form-section--compact',
+	]}
+	aria-labelledby={`${formId}-heading`}
+>
+	<div class="contact-form-card animated-border always-visible">
+		<div class="contact-form-header">
+			<h2 id={`${formId}-heading`} class="contact-form-title">{heading}</h2>
+			<p class="contact-form-description">{description}</p>
+		</div>
+
+		<form id={formId} class="contact-form" novalidate>
+			<label class="contact-form-honeypot" aria-hidden="true">
+				Website
+				<input type="text" name="website" tabindex="-1" autocomplete="off" />
+			</label>
+
+			<div class="contact-form-grid">
+				<label class="contact-form-field">
+					<span class="contact-form-label">Name</span>
+					<input
+						class="contact-form-input"
+						type="text"
+						name="name"
+						required
+						minlength="1"
+						maxlength="120"
+						autocomplete="name"
+					/>
+				</label>
+
+				<label class="contact-form-field">
+					<span class="contact-form-label">Email</span>
+					<input
+						class="contact-form-input"
+						type="email"
+						name="email"
+						required
+						maxlength="254"
+						autocomplete="email"
+					/>
+				</label>
+			</div>
+
+			{
+				showSubject && (
+					<label class="contact-form-field">
+						<span class="contact-form-label">Subject</span>
+						<input
+							class="contact-form-input"
+							type="text"
+							name="subject"
+							maxlength="200"
+							placeholder="Optional"
+						/>
+					</label>
+				)
+			}
+
+			<label class="contact-form-field">
+				<span class="contact-form-label">Message</span>
+				<textarea
+					class="contact-form-input contact-form-textarea"
+					name="message"
+					required
+					minlength="10"
+					maxlength="5000"
+					rows={textareaRows}
+					placeholder="Tell me about your project, role, or question..."
+				></textarea>
+			</label>
+
+			<div class="contact-form-actions">
+				<button type="submit" class="contact-form-submit">
+					Send message
+				</button>
+				<p class="contact-form-status" role="status" aria-live="polite" hidden></p>
+			</div>
+		</form>
+	</div>
+</section>
+
+<script define:vars={{ formId, source }}>
+	const form = document.getElementById(formId);
+	if (!(form instanceof HTMLFormElement)) {
+		throw new Error(`Contact form #${formId} was not found.`);
+	}
+
+	const statusEl = form.querySelector('.contact-form-status');
+	const submitButton = form.querySelector('.contact-form-submit');
+
+	form.addEventListener('submit', async (event) => {
+		event.preventDefault();
+
+		if (!(statusEl instanceof HTMLElement) || !(submitButton instanceof HTMLButtonElement)) {
+			return;
+		}
+
+		const formData = new FormData(form);
+		const payload = {
+			name: String(formData.get('name') ?? '').trim(),
+			email: String(formData.get('email') ?? '').trim(),
+			subject: String(formData.get('subject') ?? '').trim() || undefined,
+			message: String(formData.get('message') ?? '').trim(),
+			website: String(formData.get('website') ?? '').trim(),
+			source,
+		};
+
+		statusEl.hidden = false;
+		statusEl.dataset.state = 'pending';
+		statusEl.textContent = 'Sending...';
+		submitButton.disabled = true;
+
+		try {
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(payload),
+			});
+
+			const data = await response.json().catch(() => ({}));
+
+			if (!response.ok) {
+				throw new Error(typeof data.error === 'string' ? data.error : 'Something went wrong.');
+			}
+
+			form.reset();
+			statusEl.dataset.state = 'success';
+			statusEl.textContent = 'Thanks — your message was sent.';
+		} catch (error) {
+			statusEl.dataset.state = 'error';
+			statusEl.textContent =
+				error instanceof Error
+					? error.message
+					: 'Unable to send your message right now.';
+		} finally {
+			submitButton.disabled = false;
+		}
+	});
+</script>

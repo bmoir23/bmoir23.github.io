@@ -383,3 +383,164 @@ html.dark .cv-download-card {
 		width: 100%;
 	}
 }
+
+.contact-form-section {
+	width: 100%;
+}
+
+.contact-form-card {
+	padding: 1.5rem;
+	border-radius: 1rem;
+	background: rgb(255 255 255 / 0.6);
+}
+
+html.dark .contact-form-card {
+	background: rgb(15 23 42 / 0.5);
+}
+
+.contact-form-header {
+	margin-bottom: 1.25rem;
+}
+
+.contact-form-title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: rgb(17 24 39);
+	margin-bottom: 0.5rem;
+}
+
+html.dark .contact-form-title {
+	color: rgb(248 250 252);
+}
+
+.contact-form-description {
+	font-size: 0.95rem;
+	line-height: 1.6;
+	color: rgb(75 85 99);
+}
+
+html.dark .contact-form-description {
+	color: rgb(156 163 175);
+}
+
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.contact-form-honeypot {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.contact-form-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
+}
+
+@media (min-width: 640px) {
+	.contact-form-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+.contact-form-field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.375rem;
+}
+
+.contact-form-label {
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: rgb(107 114 128);
+}
+
+html.dark .contact-form-label {
+	color: rgb(156 163 175);
+}
+
+.contact-form-input {
+	width: 100%;
+	border-radius: 0.75rem;
+	border: 1px solid rgb(209 213 219);
+	background: rgb(255 255 255 / 0.9);
+	padding: 0.75rem 0.875rem;
+	font-size: 0.95rem;
+	color: rgb(17 24 39);
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+html.dark .contact-form-input {
+	border-color: rgb(55 65 81);
+	background: rgb(15 23 42 / 0.8);
+	color: rgb(248 250 252);
+}
+
+.contact-form-input:focus {
+	outline: none;
+	border-color: rgb(59 130 246);
+	box-shadow: 0 0 0 3px rgb(59 130 246 / 0.15);
+}
+
+.contact-form-textarea {
+	min-height: 8rem;
+	resize: vertical;
+}
+
+.contact-form-actions {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	align-items: flex-start;
+}
+
+.contact-form-submit {
+	cursor: pointer;
+	border: none;
+	border-radius: 9999px;
+	padding: 0.75rem 1.5rem;
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: rgb(255 255 255);
+	background: rgb(17 24 39);
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+html.dark .contact-form-submit {
+	background: rgb(248 250 252);
+	color: rgb(17 24 39);
+}
+
+.contact-form-submit:hover:not(:disabled) {
+	transform: translateY(-1px);
+}
+
+.contact-form-submit:disabled {
+	opacity: 0.65;
+	cursor: not-allowed;
+}
+
+.contact-form-status {
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+
+.contact-form-status[data-state='success'] {
+	color: rgb(22 163 74);
+}
+
+.contact-form-status[data-state='error'] {
+	color: rgb(220 38 38);
+}
+
+.contact-form-status[data-state='pending'] {
+	color: rgb(107 114 128);
+}
