@@ -5,6 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "preview": "npm run build && wrangler dev",
+    "astro": "astro",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
     "preview": "astro preview",
     "pages:dev": "npm run build && wrangler pages dev dist",
     "pages:deploy": "npm run build && wrangler pages deploy dist",
@@ -12,6 +16,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "12",
     "@astrojs/react": "^5.0.7",
     "@neondatabase/serverless": "^1.1.0",
     "@tailwindcss/vite": "^4.1.18",
